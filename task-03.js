@@ -13,19 +13,18 @@ const images = [
   },
 ];
 
-const galleryImagesMarkup = images.forEach((image) => {
-  const { url, alt } = image;
-  document
-    .getElementById("gallery")
 
-    .insertAdjacentHTML(
-      "beforeEnd",
-      `<li>
-        <img src="${url}" 
-        alt="${alt}"
-        width = 300
-        height = 250
-        >
+const ulEl = document.querySelector("#gallery");
+images.forEach((el) => {
+  ulEl.insertAdjacentHTML(
+    "beforeend",
+    `<li>
+    <img 
+      src = "${el.url}" 
+      alt = "${el.alt}"  
+      width = "350" 
+      height = "250" 
+    />
     </li>`
-    );
+  );
 });
