@@ -13,18 +13,18 @@ const images = [
   },
 ];
 
-
-const ulEl = document.querySelector("#gallery");
-images.forEach((el) => {
-  ulEl.insertAdjacentHTML(
-    "beforeend",
-    `<li>
-    <img 
-      src = "${el.url}" 
-      alt = "${el.alt}"  
-      width = "350" 
-      height = "250" 
-    />
-    </li>`
-  );
+const galleryList = document.getElementById("gallery");
+const addGalleryList = images.map(function (image) {
+  const imgSrc = image.url;
+  const imgAlt = image.alt;
+  const addImageInGallery = `
+  <li>
+  <img src = ${imgSrc},
+  alt = ${imgAlt}, 
+  width = 500px
+  height = 350px
+  ></li>
+  `;
+  return addImageInGallery;
 });
+galleryList.insertAdjacentHTML("beforeend", addGalleryList.join(" "));

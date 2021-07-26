@@ -6,21 +6,15 @@ const ingredients = [
   "Зелень",
   "Приправы",
 ];
-const mainUlList = document.querySelector("#ingredients")
-const ulList = document.createElement("ul");
-ulList.setAttribute("id", "ingredients");
-ulList.setAttribute("style", "list-style-type: none; padding: 0;");
 
+const ulList = document.getElementById("ingredients");
+const ingredientsList = createUlList(ingredients);
+ulList.append(...ingredientsList);
 
-console.log(ulList);
-
-let i = []
-
-for (i = 0; i <= ingredients.length - 1; i++) {
-  const li = document.createElement("li"); 
-  li.innerHTML = ingredients[i]; 
-
-  ulList.appendChild(li);
+function createUlList(items) {
+  return items.map((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    return li;
+  });
 }
-
-mainUlList.appendChild(ulList);      
